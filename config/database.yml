@@ -78,8 +78,11 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: railsconf-2018_production
-  username: railsconf2018
-  password: <%= ENV['RAILS-CONF-2018_DATABASE_PASSWORD'] %>
+ production:
+  adapter: postgresql
+  database: <%= ENV['RDS_DB_NAME'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] %>
+
